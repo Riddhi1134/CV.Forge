@@ -45,6 +45,7 @@ export function ExportSectionBuilder() {
 		setIsPrinting(true);
 		try {
 			const blob = await createResumePdfBlob(resume.data);
+
 			downloadWithAnchor(blob, filename);
 		} catch {
 			toast.error(t`There was a problem while generating the PDF, please try again.`);

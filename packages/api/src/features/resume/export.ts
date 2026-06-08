@@ -23,7 +23,11 @@ export async function createResumePdfDownload(input: CreateResumePdfDownloadInpu
 
 	try {
 		const body = await createResumePdfFile({ data: resume.data, filename });
-
+		console.log("DOWNLOAD COUNT INCREMENT:", input.id);
+		await resumeService.statistics.increment({
+			id: input.id,
+			downloads: true,
+		});
 		return {
 			headers: {
 				"content-disposition": `attachment; filename="${filename}"`,

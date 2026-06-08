@@ -16,13 +16,13 @@ export function BaseCard({ title, description, tags, className, children, ...pro
 			<div
 				{...props}
 				className={cn(
-					"relative flex aspect-page size-full overflow-hidden rounded-md bg-popover shadow transition-shadow hover:shadow-xl",
+					"relative flex aspect-page size-full overflow-hidden rounded-3xl border border-border/50 bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-2xl",
 					className,
 				)}
 			>
 				{children}
 
-				<div className="absolute inset-x-0 bottom-0 flex w-full flex-col justify-end gap-y-0.5 bg-background/40 px-4 py-3 backdrop-blur-xs">
+				<div className="absolute inset-x-0 bottom-0 flex w-full flex-col justify-end gap-y-0.5 bg-background/40 px-4 py-3 backdrop-blur-md">
 					<h3 className="truncate font-medium tracking-tight">{title}</h3>
 					<p className="truncate text-xs opacity-80">{description}</p>
 

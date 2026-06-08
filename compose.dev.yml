@@ -13,7 +13,7 @@ services:
       PORT: "3000"
       SERVER_PORT: "3001"
       APP_URL: http://localhost:3000
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/postgres
+      DATABASE_URL: postgresql://riddhi:riddhi1134@localhost:5432/reactiveresume
       S3_ENDPOINT: http://seaweedfs:8333
       REDIS_URL: redis://redis:6379
       CHOKIDAR_USEPOLLING: "true"

@@ -12,8 +12,16 @@ export function ImportResumeCard() {
 			description={t`Continue where you left off`}
 			onClick={() => openDialog("resume.import", undefined)}
 		>
-			<div className="absolute inset-0 flex items-center justify-center">
-				<DownloadSimpleIcon weight="thin" className="size-12" />
+			<div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+				<div className="rounded-full bg-primary/10 p-5">
+					<DownloadSimpleIcon className="size-10 text-primary" />
+				</div>
+
+				<div className="text-center">
+					<p className="font-semibold">Import Resume</p>
+
+					<p className="text-muted-foreground text-xs">Upload existing resume</p>
+				</div>
 			</div>
 		</BaseCard>
 	);

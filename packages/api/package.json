@@ -43,6 +43,7 @@
 		"es-toolkit": "^1.47.0",
 		"ioredis": "^5.11.0",
 		"ollama-ai-provider-v2": "^3.5.1",
+		"pdf-parse": "^2.4.5",
 		"react": "^19.2.6",
 		"resumable-stream": "^2.2.12",
 		"sharp": "^0.34.5",
@@ -52,6 +53,7 @@
 	"devDependencies": {
 		"@reactive-resume/config": "workspace:*",
 		"@types/bcrypt": "^6.0.0",
+		"@types/pdf-parse": "^1.1.5",
 		"@typescript/native-preview": "7.0.0-dev.20260527.2",
 		"typescript": "^6.0.3"
 	}

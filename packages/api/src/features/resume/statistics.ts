@@ -27,4 +27,19 @@ export const resumeStatisticsRouter = {
 		.handler(async ({ context, input }) => {
 			return resumeService.statistics.getById({ id: input.id, userId: context.user.id });
 		}),
+
+	incrementDownload: protectedProcedure
+		.input(
+			z.object({
+				id: z.string(),
+			}),
+		)
+		.handler(async ({ input }) => {
+			await resumeService.statistics.increment({
+				id: input.id,
+				downloads: true,
+			});
+
+			return { success: true };
+		}),
 };

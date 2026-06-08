@@ -18,6 +18,8 @@ import { Route as AuthIndexRouteImport } from "./routes/auth/index";
 import { Route as AgentIndexRouteImport } from "./routes/agent/index";
 import { Route as HomeIndexRouteImport } from "./routes/_home/index";
 import { Route as TemplatesSplatRouteImport } from "./routes/templates/$";
+import { Route as DashboardTemplatesRouteImport } from "./routes/dashboard/templates";
+import { Route as DashboardAtsScannerRouteImport } from "./routes/dashboard/ats-scanner";
 import { Route as AuthVerify2faBackupRouteImport } from "./routes/auth/verify-2fa-backup";
 import { Route as AuthVerify2faRouteImport } from "./routes/auth/verify-2fa";
 import { Route as AuthResumePasswordRouteImport } from "./routes/auth/resume-password";
@@ -82,6 +84,16 @@ const TemplatesSplatRoute = TemplatesSplatRouteImport.update({
   id: "/templates/$",
   path: "/templates/$",
   getParentRoute: () => rootRouteImport,
+} as any);
+const DashboardTemplatesRoute = DashboardTemplatesRouteImport.update({
+  id: "/templates",
+  path: "/templates",
+  getParentRoute: () => DashboardRouteRoute,
+} as any);
+const DashboardAtsScannerRoute = DashboardAtsScannerRouteImport.update({
+  id: "/ats-scanner",
+  path: "/ats-scanner",
+  getParentRoute: () => DashboardRouteRoute,
 } as any);
 const AuthVerify2faBackupRoute = AuthVerify2faBackupRouteImport.update({
   id: "/verify-2fa-backup",
@@ -207,6 +219,8 @@ export interface FileRoutesByFullPath {
   "/auth/resume-password": typeof AuthResumePasswordRoute;
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
+  "/dashboard/ats-scanner": typeof DashboardAtsScannerRoute;
+  "/dashboard/templates": typeof DashboardTemplatesRoute;
   "/templates/$": typeof TemplatesSplatRoute;
   "/agent/": typeof AgentIndexRoute;
   "/auth/": typeof AuthIndexRoute;
@@ -232,6 +246,8 @@ export interface FileRoutesByTo {
   "/auth/resume-password": typeof AuthResumePasswordRoute;
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
+  "/dashboard/ats-scanner": typeof DashboardAtsScannerRoute;
+  "/dashboard/templates": typeof DashboardTemplatesRoute;
   "/templates/$": typeof TemplatesSplatRoute;
   "/": typeof HomeIndexRoute;
   "/agent": typeof AgentIndexRoute;
@@ -264,6 +280,8 @@ export interface FileRoutesById {
   "/auth/resume-password": typeof AuthResumePasswordRoute;
   "/auth/verify-2fa": typeof AuthVerify2faRoute;
   "/auth/verify-2fa-backup": typeof AuthVerify2faBackupRoute;
+  "/dashboard/ats-scanner": typeof DashboardAtsScannerRoute;
+  "/dashboard/templates": typeof DashboardTemplatesRoute;
   "/templates/$": typeof TemplatesSplatRoute;
   "/_home/": typeof HomeIndexRoute;
   "/agent/": typeof AgentIndexRoute;
@@ -297,6 +315,8 @@ export interface FileRouteTypes {
     | "/auth/resume-password"
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
+    | "/dashboard/ats-scanner"
+    | "/dashboard/templates"
     | "/templates/$"
     | "/agent/"
     | "/auth/"
@@ -322,6 +342,8 @@ export interface FileRouteTypes {
     | "/auth/resume-password"
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
+    | "/dashboard/ats-scanner"
+    | "/dashboard/templates"
     | "/templates/$"
     | "/"
     | "/agent"
@@ -353,6 +375,8 @@ export interface FileRouteTypes {
     | "/auth/resume-password"
     | "/auth/verify-2fa"
     | "/auth/verify-2fa-backup"
+    | "/dashboard/ats-scanner"
+    | "/dashboard/templates"
     | "/templates/$"
     | "/_home/"
     | "/agent/"
@@ -443,6 +467,20 @@ declare module "@tanstack/react-router" {
       fullPath: "/templates/$";
       preLoaderRoute: typeof TemplatesSplatRouteImport;
       parentRoute: typeof rootRouteImport;
+    };
+    "/dashboard/templates": {
+      id: "/dashboard/templates";
+      path: "/templates";
+      fullPath: "/dashboard/templates";
+      preLoaderRoute: typeof DashboardTemplatesRouteImport;
+      parentRoute: typeof DashboardRouteRoute;
+    };
+    "/dashboard/ats-scanner": {
+      id: "/dashboard/ats-scanner";
+      path: "/ats-scanner";
+      fullPath: "/dashboard/ats-scanner";
+      preLoaderRoute: typeof DashboardAtsScannerRouteImport;
+      parentRoute: typeof DashboardRouteRoute;
     };
     "/auth/verify-2fa-backup": {
       id: "/auth/verify-2fa-backup";
@@ -642,6 +680,8 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 );
 
 interface DashboardRouteRouteChildren {
+  DashboardAtsScannerRoute: typeof DashboardAtsScannerRoute;
+  DashboardTemplatesRoute: typeof DashboardTemplatesRoute;
   DashboardIndexRoute: typeof DashboardIndexRoute;
   DashboardSettingsIntegrationsRouteRoute: typeof DashboardSettingsIntegrationsRouteRoute;
   DashboardSettingsApiKeysRoute: typeof DashboardSettingsApiKeysRoute;
@@ -654,6 +694,8 @@ interface DashboardRouteRouteChildren {
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
+  DashboardAtsScannerRoute: DashboardAtsScannerRoute,
+  DashboardTemplatesRoute: DashboardTemplatesRoute,
   DashboardIndexRoute: DashboardIndexRoute,
   DashboardSettingsIntegrationsRouteRoute:
     DashboardSettingsIntegrationsRouteRoute,
