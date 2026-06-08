@@ -67,7 +67,13 @@ export function DashboardActions() {
 						})
 					}
 				/>
-				<ActionCard icon={<ScanIcon size={18} weight="duotone" />} label="ATS Scanner" subtitle="Check your score" />
+
+				<ActionCard
+					icon={<ScanIcon size={18} weight="duotone" />}
+					label="ATS Scanner"
+					subtitle="Check your score"
+					onClick={() => void navigate({ to: "/dashboard/ats-scanner" })}
+				/>
 			</div>
 		</div>
 	);
