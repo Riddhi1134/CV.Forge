@@ -15,6 +15,7 @@ import { createAuthClient } from "better-auth/react";
 
 const getAuthClient = () => {
 	return createAuthClient({
+		baseURL: import.meta.env.VITE_API_URL,
 		plugins: [
 			dashClient(),
 			adminClient(),
@@ -23,7 +24,6 @@ const getAuthClient = () => {
 			usernameClient(),
 			twoFactorClient({
 				onTwoFactorRedirect() {
-					// Redirect to 2FA verification page
 					if (typeof window !== "undefined") {
 						window.location.href = "/auth/verify-2fa";
 					}
