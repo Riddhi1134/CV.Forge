@@ -7,6 +7,7 @@ import {
 	ChatCircleDotsIcon,
 	GearSixIcon,
 	KeyIcon,
+	NotePencilIcon,
 	ReadCvLogoIcon,
 	ShieldCheckIcon,
 	UserCircleIcon,
@@ -47,6 +48,12 @@ const appSidebarItems = [
 		label: msg`Resumes`,
 		href: "/dashboard/resumes",
 	},
+	{
+		icon: <NotePencilIcon />,
+		label: msg`Cover Letters`,
+		href: "/dashboard/cover-letters",
+	},
+
 	{
 		icon: <ChatCircleDotsIcon />,
 		label: msg`Agents`,

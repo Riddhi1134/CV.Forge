@@ -777,6 +777,7 @@ function createAgent(input: {
 }) {
 	const tools = buildAgentTools({
 		provider: input.provider,
+		userId: input.userId,
 		handlers: {
 			readResume: async () => {
 				const resume = await resumeService.getById({ id: input.resumeId, userId: input.userId });

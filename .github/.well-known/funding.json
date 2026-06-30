@@ -13,8 +13,8 @@
 	},
 	"projects": [
 		{
-			"guid": "reactive-resume",
-			"name": "Reactive Resume",
+			"guid": "CV Forge",
+			"name": "CV Forge",
 			"description": "A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.",
 			"webpageUrl": {
 				"url": "https://rxresu.me"

@@ -1,0 +1,1 @@
+ALTER TABLE "cover_letter" ALTER COLUMN "user_id" SET DATA TYPE text USING "user_id"::text;

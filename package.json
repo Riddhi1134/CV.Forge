@@ -1,6 +1,6 @@
 {
-	"name": "reactive-resume",
-	"description": "Reactive Resume is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.",
+	"name": "CV_FORGE",
+	"description": "CV-Forge is a free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.",
 	"version": "5.1.8",
 	"private": true,
 	"license": "MIT",
@@ -56,5 +56,8 @@
 		"turbo": "^2.9.16",
 		"typescript": "^6.0.3",
 		"vitest": "^4.1.8"
+	},
+	"dependencies": {
+		"openai": "^6.43.0"
 	}
 }
