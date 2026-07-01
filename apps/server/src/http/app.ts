@@ -1,4 +1,7 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
+import { env } from "@reactive-resume/env/server";
+import { getTrustedOrigins } from "../../../../packages/auth/src/trusted-origins";
 import { handleMcp } from "../mcp/handler";
 import { handleOpenApi } from "../openapi/handler";
 import {
@@ -19,6 +22,16 @@ import { handleResumePdfDownload } from "./resume-pdf";
 
 export function createApp() {
 	const app = new Hono();
+
+	app.use(
+		"/api/*",
+		cors({
+			origin: getTrustedOrigins(env.APP_URL, env.CORS_ORIGINS),
+			credentials: true,
+			allowHeaders: ["Content-Type", "Authorization", "x-api-key"],
+			allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+		}),
+	);
 
 	app.all("/api/rpc", (c) => handleRpc(c.req.raw));
 	app.all("/api/rpc/*", (c) => handleRpc(c.req.raw));
