@@ -14,6 +14,7 @@ export const env = createEnv({
 	server: {
 		// Application
 		APP_URL: z.url({ protocol: /https?/ }),
+		CORS_ORIGINS: z.string().min(1).optional(),
 		SERVER_PORT: z.coerce.number().int().min(1).max(65535).default(3001),
 
 		// Database
